@@ -1,0 +1,5 @@
+# Firefox
+bspc rule -a firefox follow=on state=monocle
+
+# MPV
+bspc rule -a mpv focus=off state=floating

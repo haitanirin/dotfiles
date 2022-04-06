@@ -1,0 +1,115 @@
+format = """\
+        $username\
+        $hostname\
+        $shlvl\
+        $singularity\
+        $kubernetes\
+        $directory\
+        $git_branch\
+        $git_commit\
+        $git_state\
+        $git_status\
+        $hg_branch\
+        $docker_context\
+        $package\
+        ( ↓ Toolchain version modules ↓ )\
+        $cmake\
+        $dart\
+        $dotnet\
+        $elixir\
+        $elm\
+        $erlang\
+        $golang\
+        $helm\
+        $java\
+        $julia\
+        $lua\
+        $nim\
+        $nodejs\
+        $ocaml\
+        $perl\
+        $php\
+        $purescript\
+        $python\
+        $ruby\
+        $rust\
+        $swift\
+        $terraform\
+        $zig\
+        ( ↑ Toolchain version modules ↑ )\
+        $nix_shell\
+        $conda\
+        $memory_usage\
+        $aws\
+        $gcloud\
+        $openstack\
+        $env_var\
+        $crystal\
+        $cmd_duration\
+        $custom\
+        (↑ above input line ↑)\
+        $fill\
+        $time\
+        $line_break\
+        (↓ on input line ↓)\
+        $jobs\
+        $status\
+        $character\
+    """
+
+scan_timeout = 30
+add_newline = true
+
+[character]
+disabled = false
+success_symbol = "[](bold green) "
+error_symbol = "[](bold red) "
+
+[directory]
+disabled = false
+truncation_length = 0
+truncate_to_repo = true
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+style = "bold fg:purple"
+read_only = " (read only)"
+read_only_style = "italic bold fg:red"
+truncation_symbol = "…/"
+
+[package]
+disabled = true
+
+[fill]
+disabled = false
+symbol = " "
+
+[time]
+disabled = false
+format = "[祥 $time]($style) "
+style = "bold fg:purple"
+time_format = "%I:%M %p"
+utc_time_offset = "-3"
+
+[nodejs]
+disabled = false
+format = " [$symbol ($version) ]($style)"
+version_format = "$raw"
+symbol = ""
+
+[rust]
+disabled = false
+format = " [$symbol ($version) ]($style)"
+version_format = "$raw"
+symbol = ""
+
+[python]
+disabled = false
+format = " [$symbol ($version) ]($style)"
+version_format = "$raw"
+symbol = ""
+
+[ruby]
+disabled = false
+format = " [$symbol ($version) ]($style)"
+version_format = "$raw"
+symbol = ""

@@ -1,0 +1,59 @@
+#! /bin/sh
+# open terminal
+
+super + Return
+	kitty
+
+# open applauncher
+
+super + @space
+	rofi -show drun
+
+# reload sxhkd
+
+super + Escape
+  pkill -USR1 -x sxhkd && dunstify -r 500 "SXHKD" "keybinding settings reloaded"
+
+# reload wm
+
+super + alt + r
+  bspc wm -r && dunstify -r 500 "BSPWM" "wm reloaded"
+
+# close window
+
+super + q
+	bspc node -c
+
+# tiled/monocle toggle
+
+super + m
+	bspc desktop -l next
+
+
+# super + t = tiled
+# super + shift + t = pseudo_tiled
+# super + s = floating
+# super + f = fullscreen
+
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# super + control + m = marked
+# super + control + x = locked
+# super + control + y = sticky
+# super + control + z = private
+
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
+
+super + Up 
+	volume up
+
+super + Down
+	volume down
